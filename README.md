@@ -89,10 +89,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Developer Contact
 
-MING-YI WEI - wei573434@gmail.com
-XUAN-YIN CHEN - B10832039@gapps.ntust.edu.tw
+- MING-YI WEI - wei573434@gmail.com
+- XUAN-YIN CHEN - B10832039@gapps.ntust.edu.tw
 
-Project Link: [https://github.com/Cwei61/HeartRate_detector_with_ArduinoandPython](https://github.com/Cwei61/HeartRate_detector_with_ArduinoandPython)
+- Project Link: [https://github.com/Cwei61/HeartRate_detector_with_ArduinoandPython](https://github.com/Cwei61/HeartRate_detector_with_ArduinoandPython)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
