@@ -14,13 +14,18 @@ import scipy
 
 
 
-strPort='com5'
+strPort='com4'
 ser = serial.Serial(strPort, 115200)
 ser.flush()
 start = time.time()
 
 def show_msg():
-   messagebox.showinfo("Message","Hey There! I hope you are doing well.")
+    if int(PData.fre_heart) > 59 and int(PData.fre_heart) < 101:
+        #print(int(PData.fre_heart))
+        messagebox.showinfo("Great!","Congratulate!! \nYour heartrate is in normal range!")
+    else:
+        messagebox.showinfo("Shit","Your heartrate is not right!!! \n You should see a doctor")
+        #print("out of range")
 
 def ffilter(ecg):
     xf = np.fft.fft(ecg)
@@ -111,7 +116,8 @@ def set_button1_state():
 def set_button2_state():
     
     varLabel.set("System  status : Show Pause")
-    
+    messagebox.showinfo("Pause","If you want to continue,please close the windows")
+    varLabel.set("System  status : running")
     
 
 def set_button3_state():
@@ -135,9 +141,9 @@ def update():
         
 
 root=Tk()
-root.geometry('600x400')
+root.geometry('480x350')
 root.title("Heartrate detector")
-label_welcome = tkinter.Label(text = 'Building Python GUI to show heart rate,',font=("Courier", 12,'bold')).pack()
+label_welcome = tkinter.Label(text = 'Building Python GUI to show heart rate',font=("Courier", 12,'bold')).pack()
 
 varLabel = tkinter.IntVar()
 tkLabel = tkinter.Label(textvariable=varLabel, )
@@ -168,11 +174,11 @@ button2state.pack(side='left', ipadx=10, padx=10, pady=15)
 
 button3 = tkinter.IntVar()
 button3state = tkinter.Button(root,
-    text="Show ECG interpreting",
+    text="Analyse",
     command=show_msg,
     height = 4,
     fg = "black",
-    width = 15,
+    width = 8,
     bd = 5
 )
 button3state.pack(side='left', ipadx=10, padx=10, pady=15)
@@ -191,7 +197,7 @@ tkButtonQuit = tkinter.Button(
 tkButtonQuit.pack(side='left', ipadx=10, padx=10, pady=15)
 
 varLabel2 = tkinter.IntVar()
-tkLabel2 = tkinter.Label(textvariable=reading,fg='red', bg='lightblue' )
+tkLabel2 = tkinter.Label(textvariable=reading,fg='red', bg='lightblue',font=30)
 tkLabel2.pack()
 
 varLabel.set("System  status : running")
